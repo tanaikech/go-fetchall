@@ -1,12 +1,9 @@
 package fetchall
 
 import (
-	"bytes"
 	"net/http"
 	"os"
 	"testing"
-
-	"golang.org/x/net/html"
 )
 
 func TestRunFetchAll(t *testing.T) {
@@ -31,23 +28,6 @@ func TestRunFetchAll(t *testing.T) {
 
 	// Show result
 	for _, e := range res {
-		doc, err := html.Parse(e.Response.Body)
-		if err != nil {
-			os.Exit(1)
-		}
-		var title *html.Node
-		var f func(*html.Node)
-		f = func(n *html.Node) {
-			if n.Type == html.ElementNode && n.Data == "title" {
-				title = n
-			}
-			for c := n.FirstChild; c != nil; c = c.NextSibling {
-				f(c)
-			}
-		}
-		f(doc)
-		var bf bytes.Buffer
-		html.Render(&bf, title)
-		t.Log(bf.String())
+		t.Log(e.Response.Status)
 	}
 }
