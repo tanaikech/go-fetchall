@@ -59,7 +59,7 @@ type Params struct {
 
 #### Response value:
 
-A slice with the following structure is returned.
+A slice with the following structure is returned. **The response values are returned as an array. And the order of element in the array is the same with the array of the inputted requests.**
 
 ```golang
 // Response : Result
