@@ -36,7 +36,7 @@ $ go get -u github.com/tanaikech/go-fetchall
 
 | Method             | Explanation                                          |
 | :----------------- | :--------------------------------------------------- |
-| `Do(*http.Client)` | Run inputted requests with the asynchronous process. |
+| `Do(*fetchall.Params)` | Run inputted requests with the asynchronous process. |
 
 # Usage
 
